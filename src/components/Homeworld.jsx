@@ -14,7 +14,7 @@ function Homeworld(props) {
             .then(res => {
                 // console.log(res);
                 setHomeworld(res.data.name)
-                props.updateDefault("planets", id);
+               
             })
             .catch(err => console.log(err))
 

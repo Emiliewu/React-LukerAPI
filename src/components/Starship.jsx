@@ -20,7 +20,7 @@ function Starship(props) {
 
   return (
     <>
-    {starship ? <Link to={url}><span onClick={props.updateDefault("people", id)}>{starship}</span></Link>: ""}
+    {starship ? <Link to={url}>{starship}</Link>: ""}
     </>
   )
 }
