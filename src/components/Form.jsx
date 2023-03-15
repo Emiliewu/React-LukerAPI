@@ -16,6 +16,10 @@ function Form() {
       <select name="category" value={category} onChange={e => setCategory(e.target.value)} >
         <option value="people">People</option>
         <option value="planets">Planets</option>
+        <option value="films">Film</option>
+        <option value="species">Species</option>
+        <option value="vehicles">Vehicles</option>
+        <option value="starships">Starships</option>
       </select>
       <input type="number" name="id" value={id} onChange={e => setId(e.target.value)}/>
       <button type='submit'>submit</button>

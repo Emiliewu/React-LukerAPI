@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from './Form';
 import Homeworld from './Homeworld';
 import Starship from './Starship';
+import Name from './Name';
 
 function Display() {
   const [detail, setDetail] = useState();
@@ -53,12 +54,12 @@ function Display() {
           <li> Skin Color:&nbsp; {detail.skin_color}</li>
           <li>Homeworld: &nbsp;<Homeworld homeworldurl = {homeworldurl}/></li>
           <li>Starships:&nbsp; 
-          {starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item} key={idx}/>)} &nbsp;</li>
+          {detail&&starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item} key={idx}/>)} &nbsp;</li>
         </ul> : ""
     }
       <div>
      { category !== 'people' && display && display.map((item, idx)=><ul key = {idx}>
-      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div>{one}</div>):item[1]}</li>
+      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div><Name url={one}></Name></div>):item[1]}</li>
       </ul>)
       
     }
