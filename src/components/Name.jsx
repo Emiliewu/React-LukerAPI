@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 function Name(props) {
-    const {url} = props;
+    const {url, category} = props;
     const [name, setName] = useState();
+    let arr = url.split("");
+    let id = arr.splice(-2, 1);
+    const urlforlink = `/${category}/${id}`;
 
     useEffect(()=>{
         axios.get(url)
@@ -15,7 +20,7 @@ function Name(props) {
 
     }, [url])
   return (
-    <>{name && name}</>
+    <div id="link">{name  ? <Link to={urlforlink}>{name}</Link>: ""}</div>
   )
 }
 

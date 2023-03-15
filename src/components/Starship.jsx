@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function Starship(props) {
     const [starship, setStarship] = useState();
     const {starshipurl} = props;
-
+    let arr = starshipurl.split("");
+    let id = arr.splice(-2, 1);
+    const url = "/starships/" +id;
     useEffect(()=>{
         axios.get(starshipurl)
             .then(res => {
@@ -17,7 +20,7 @@ function Starship(props) {
 
   return (
     <>
-    {starship && starship}
+    {starship ? <Link to={url}>{starship}</Link>: ""}
     </>
   )
 }

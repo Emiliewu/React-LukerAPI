@@ -59,7 +59,7 @@ function Display(props) {
     }
       <div>
      { category !== 'people' && display && display.map((item, idx)=><ul key = {idx}>
-      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div><Name url={one}></Name></div>):item[1]}</li>
+      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div><Name url={one} category = {item[0]}></Name></div>):item[1]}</li>
       </ul>)
       
     }
