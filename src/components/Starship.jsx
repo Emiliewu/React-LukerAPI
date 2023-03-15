@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 function Starship(props) {
     const [starship, setStarship] = useState();
     const {starshipurl} = props;
-    let arr = starshipurl.split("");
+    let arr = starshipurl.split("/");
     let id = arr.splice(-2, 1);
     const url = "/starships/" +id;
     useEffect(()=>{
@@ -20,7 +20,7 @@ function Starship(props) {
 
   return (
     <>
-    {starship ? <Link to={url}>{starship}</Link>: ""}
+    {starship ? <Link to={url}><span onClick={props.updateDefault("people", id)}>{starship}</span></Link>: ""}
     </>
   )
 }

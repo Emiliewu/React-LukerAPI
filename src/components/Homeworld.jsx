@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 function Homeworld(props) {
     const {homeworldurl} = props;
     const [homeworld, setHomeworld] = useState();
-    let arr = homeworldurl.split("");
+    let arr = homeworldurl.split("/");
     let id = arr.splice(-2, 1);
     const url = "/planets/" +id;
 
@@ -21,7 +21,7 @@ function Homeworld(props) {
     }, [homeworldurl])
   return (
     <>
-    {homeworld? <Link to={url}>{homeworld}</Link>: ""}
+    {homeworld? <Link to={url} >{homeworld}</Link>: ""}
     </>
   )
 }

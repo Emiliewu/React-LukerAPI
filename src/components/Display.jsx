@@ -11,9 +11,10 @@ function Display(props) {
   const [display, setDisplay] = useState();
   const [homeworldurl, setHomeworldurl] = useState();
   const [starship, setStarship] = useState();
-  const {id, category} = useParams();
+  let {id, category} = useParams();
   const navigate = useNavigate();
 
+  category = category === "residents" || "charactors" ? "people": category;
   const url = "https://swapi.dev/api/";
   console.log(id + category);
   useEffect(()=>{
