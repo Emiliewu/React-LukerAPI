@@ -4,8 +4,12 @@ import {Link} from 'react-router-dom';
 
 
 function Name(props) {
-    const {url, category} = props;
+    let {url, category} = props;
     const [name, setName] = useState();
+    if(category === "charactors") {
+        category = "people"
+    }
+   category = category === "residents" ? "planets": category;
     let arr = url.split("");
     let id = arr.splice(-2, 1);
     const urlforlink = `/${category}/${id}`;
@@ -15,6 +19,7 @@ function Name(props) {
             .then(res => {
                 // console.log(res);
                 res.data.name ? setName(res.data.name) : setName(res.data.title);
+                
             })
             .catch(err => console.log(err))
 

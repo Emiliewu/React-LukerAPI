@@ -52,14 +52,14 @@ function Display(props) {
           <li> Mass:&nbsp; {detail.mass}</li>
           <li> Eye Color:&nbsp; {detail.eye_color}</li>
           <li> Skin Color:&nbsp; {detail.skin_color}</li>
-          <li>Homeworld: &nbsp;<Homeworld homeworldurl = {homeworldurl}/></li>
+          <li>Homeworld: &nbsp;<Homeworld homeworldurl = {homeworldurl} updateDefault={props.updateDefault}/></li>
           <li>Starships:&nbsp; 
-          {detail&&starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item} key={idx}/>)} &nbsp;</li>
+          {detail&&starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item} updateDefault={props.updateDefault} key={idx}/>)} &nbsp;</li>
         </ul> : ""
     }
       <div>
      { category !== 'people' && display && display.map((item, idx)=><ul key = {idx}>
-      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div><Name url={one} category = {item[0]}></Name></div>):item[1]}</li>
+      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div key={idx}><Name url={one} category = {item[0]} updateDefault={props.updateDefault}/></div>):item[1]}</li>
       </ul>)
       
     }
