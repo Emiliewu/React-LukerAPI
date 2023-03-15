@@ -55,7 +55,7 @@ function Display(props) {
           <li> Skin Color:&nbsp; {detail.skin_color}</li>
           <li>Homeworld: &nbsp;<Homeworld homeworldurl = {homeworldurl} /></li>
           <li>Starships:&nbsp; 
-          {detail&&starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item}  key={idx}/>)} &nbsp;</li>
+          {starship? starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item}  key={idx}/>) : ""} &nbsp;</li>
         </ul> : ""
     }
       <div>

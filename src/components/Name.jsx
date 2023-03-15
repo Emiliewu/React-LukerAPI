@@ -6,8 +6,9 @@ import {Link} from 'react-router-dom';
 function Name(props) {
     let {url, category} = props;
     const [name, setName] = useState();
+    console.log(category);
   
-    if(category === "residents" || category === "charactors") {
+    if(category === "residents" || category === "characters") {
         category = "people";
     }
     let arr = url.split("/");
