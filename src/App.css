@@ -41,6 +41,8 @@ ul > h2 {
 ul > li {
   font-size: 18px;
   margin-bottom: 5px;
+  inline-size: 450px;
+  overflow-wrap: break-word;
 }
 ul > li:last-of-type {
   margin-bottom: 15px;

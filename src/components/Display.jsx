@@ -18,11 +18,11 @@ function Display() {
   useEffect(()=>{
     axios.get(`${url}${category}/${id}`)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         setDetail(res.data);
         let arr = [];
         arr = Object.entries(res.data);
-        // console.log(arr);
+        console.log(arr);
         setDisplay(Object.entries(res.data));
         if(category === 'people') {
           const {homeworld} = res.data;
@@ -31,7 +31,7 @@ function Display() {
           console.log(starships);
           setStarship(starships);
         }
-
+    
 
       })
       .catch(err =>{
@@ -44,8 +44,7 @@ function Display() {
     <div id="result">
     <Form />
 
-    { category === 'people'? 
-      detail &&<div>
+    { category === 'people' && detail?
         <ul>
           <h2>{detail.name}</h2>
           <li> Height:&nbsp; {detail.height}</li>
@@ -55,12 +54,15 @@ function Display() {
           <li>Homeworld: &nbsp;<Homeworld homeworldurl = {homeworldurl}/></li>
           <li>Starships:&nbsp; 
           {starship.length === 0 ? "Not Available" : starship.map((item,idx)=><Starship starshipurl = {item} key={idx}/>)} &nbsp;</li>
-        </ul>
-      </div>:
-      display && display.map((item, idx)=><ul key = {idx}>
+        </ul> : ""
+    }
+      <div>
+     { category !== 'people' && display && display.map((item, idx)=><ul key = {idx}>
       <li>{item[0]} : {item[1]}</li>
       </ul>)
+      
     }
+    </div>
     </div>
   )
 }

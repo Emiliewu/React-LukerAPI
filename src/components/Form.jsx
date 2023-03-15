@@ -15,7 +15,7 @@ function Form() {
     <form onSubmit={handleSubmit}>
       <select name="category" value={category} onChange={e => setCategory(e.target.value)} >
         <option value="people">People</option>
-        <option value="starship">Starship</option>
+        <option value="planets">Planets</option>
       </select>
       <input type="number" name="id" value={id} onChange={e => setId(e.target.value)}/>
       <button type='submit'>submit</button>
