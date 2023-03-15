@@ -7,7 +7,9 @@ function Name(props) {
     let {url, category} = props;
     const [name, setName] = useState();
   
-   category = "residents" || "charactors" ? "people": category;
+    if(category === "residents" || category === "charactors") {
+        category = "people";
+    }
     let arr = url.split("/");
     let id = arr.splice(-2, 1);
     const urlforlink = `/${category}/${id}`;

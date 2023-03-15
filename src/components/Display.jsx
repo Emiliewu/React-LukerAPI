@@ -44,7 +44,7 @@ function Display(props) {
 
   return (
     <div id="result">
-    <Form />
+    <Form defaultCategory = {category} defaultId={id}/>
 
     { category === 'people' && detail?
         <ul>

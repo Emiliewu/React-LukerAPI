@@ -6,8 +6,10 @@ function Homeworld(props) {
     const {homeworldurl} = props;
     const [homeworld, setHomeworld] = useState();
     let arr = homeworldurl.split("/");
+    console.log(homeworldurl)
     let id = arr.splice(-2, 1);
-    const url = "/planets/" +id;
+    console.log(id);
+    const url = "/planets/" + id;
 
     useEffect(()=>{
         axios.get(homeworldurl)

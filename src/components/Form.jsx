@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function Form(props) {
-  const [category, setCategory] = useState('people');
-  const [id, setId] = useState(1);
+  const [category, setCategory] = useState(props.defaultCategory);
+  const [id, setId] = useState(props.defaultId);
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
