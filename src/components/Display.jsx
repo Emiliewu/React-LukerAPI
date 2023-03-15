@@ -58,7 +58,7 @@ function Display() {
     }
       <div>
      { category !== 'people' && display && display.map((item, idx)=><ul key = {idx}>
-      <li>{item[0]} : {item[1]}</li>
+      <li>{item[0]} : {(typeof item[1] === 'object') ? item[1].map((one, idx)=><div>{one}</div>):item[1]}</li>
       </ul>)
       
     }
