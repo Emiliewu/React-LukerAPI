@@ -6,7 +6,7 @@ import Homeworld from './Homeworld';
 import Starship from './Starship';
 import Name from './Name';
 
-function Display() {
+function Display(props) {
   const [detail, setDetail] = useState();
   const [display, setDisplay] = useState();
   const [homeworldurl, setHomeworldurl] = useState();
@@ -43,7 +43,7 @@ function Display() {
 
   return (
     <div id="result">
-    <Form />
+    <Form defaultCategory = {category} defaultId = {id} updateDefault={props.updateDefault}/>
 
     { category === 'people' && detail?
         <ul>
