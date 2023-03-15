@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function Form(props) {
-  const [category, setCategory] = useState(props.category);
-  const [id, setId] = useState(props.id)
+  const [category, setCategory] = useState(props.defaultCategory);
+  const [id, setId] = useState(props.defaultId)
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ function Form(props) {
         <option value="vehicles">Vehicles</option>
         <option value="starships">Starships</option>
       </select>
-      <input type="number" name="id" value={id} onChange={e => setId(e.target.value)}/>
+      <input type="number" name="id" value={id} onChange={e => setId(e.target.value)} min="1"/>
       <button type='submit'>submit</button>
     </form>
 
